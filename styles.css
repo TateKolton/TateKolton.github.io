@@ -93,10 +93,6 @@ body {
     transition: all 0.3s ease;
 }
 
-.checkbtn {
-    font-size: 30px;
-}
-
 .hamburger {
     display: none;
     cursor: pointer;
@@ -112,7 +108,7 @@ body {
     background-color: #eee;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 800px) {
     .hamburger{
         display: block;
     }
@@ -398,7 +394,7 @@ body {
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
     .project-page-main{
         flex-direction: column;
         margin: 0;
@@ -422,6 +418,24 @@ body {
 
     .skill-container {
         padding: 0.3rem;
+        width: 80%;
+    }
+
+    .skill-list{
+        font-size: 0.9rem;
+    }
+
+    .skill-title {
+        font-size: 0.6rem;
+        width: 80%;
+    }
+
+    #profile-photo {
+        width: 300px;
+    }
+
+    #p1 {
+        font-size: 1rem;
     }
 }
 
