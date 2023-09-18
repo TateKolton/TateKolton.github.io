@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/project-styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo">Tate Kolton</a>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/projects.html" class="navbar_links"> Projects </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/skills.html" class="navbar_links"> Skills </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/" class="navbar_links"> Work Experience </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/about.html" class="navbar_links"> About </a>
+                </li>
+                <li class="navbar_btn">
+                    <a href="/contact.html" class="button"> Contact </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+
+    <div class="blog">
+        <div class="blog-container">
+            <h1 class="title"> LASER-EQUIPPED-MICROSCOPE CALIBRATION AND TRAJECTORY OPTIMIZATION - MDL UBC </h1>
+            <h2 class="header1"> PROJECT DESCRIPTION </h2>
+            <p class="body1"> 
+                Multi-scale Design Laboratory (MDL) is a UBC lab that develops new analytical technologies for medicine and biological research at the single cell scale. Their work is enabled by advances in fabrication, measurement, and computation across a wide range of domains and length scales. 
+                I had the chance to work with them during my final year of studies. 
+            </p>
+
+            <p class="body1"> 
+                MDL often uses their custom technology, "Nanowells" for separating cells within a microwell plate, shown below.
+            </p>
+
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/laser/nanowell.png"
+                    class="main-photo" id="mdl-pic">
+                <h3 class="caption"> Fig. 1: MDL Nanowells With Centres Highlighted in Red</h3>
+            </div>
+
+            <h2 class="header1">LASER CALIBRATION PROJECT </h2>
+
+            <p class="body1"> 
+                A large project I worked on was calibrating a laser-equipped-microscope for use in new cell analysis technology. 
+                How the system works: 
+            </p>
+            <ul class="blog-list">
+                <li> The laser is controlled in the microscope's field of view by a 2-axis galvananometer (Vx,Vy)</li>
+                <li> For the lab's use case, we need precise control of the laser position (measured as an ordered pair of pixel coordinates on the camera field of view: Px,Py)</li> </li>
+                <li> Due to imperfections in system alignment and the optical geometry, there is a nonlinear relationship between galvo voltage and laser position (Px,Py) = f_nonlinear(Vx,Vy)</li>
+            </ul>
+
+            <p class="body1"> 
+                My task was to design calibration software that "closes the loop" on laser position so that we can command the laser to exact locations in the camera field of view. 
+                This will allow us to abstract the laser control hardware and scan trajectories based on uploaded images.
+            </p>
+
+            <p class="body1"> 
+                We designed a calibration sequence that closes the gap between input voltage and laser position. I wrote Python / C# code to automate the following:
+            </p>
+            <ul class="blog-list">
+                <li>Turn laser power to low and reduce camera exposure so that the laser appears as a small point in microscope</li>
+                <li>Move the laser in a grid of evenly spaced galvo voltages (Vx,Vy)</li>
+                <li>At each position, capture an image of the laser</li>
+                <li>Use Python CV library to extract laser centroid from images (Px,Py)</li>
+                <li>Now we have a table of (Vx,Vy)->(Px,Py) for the whole field of view</li>
+                <li>Use linear interpolation for space between points to map galvo voltages to every pixel position</li>
+            </ul>
+            <p class="body1"> 
+                The photo below plots the actual laser position (red) for the evenly spaced voltage commands on top of an ideal square grid (white).
+                The strange warping of laser position is evident and sensitive to any disturbances to the microscope.
+            </p>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/laser/warped-field.bmp"
+                    class="main-photo" id="mdl-pic">
+                <h3 class="caption"> Fig. 2: Measured Laser Position (Red) vs ideal square grid (White) for evenly spaced command voltages (Vx,Vy)</h3>
+            </div>
+            <p class="body1"> 
+                To validate the calibration:
+            </p>
+            <ul class="blog-list">
+                <li>Command laser to a spaced grid of pixel locations corresponding to Nanowell centers (Px,Py) using new interpolation table</li>
+                <li>Capture images of laser at each location and extract laser centroid (same as first calibration step)</li>
+                <li>Overlay images of laser position with photograph of centered Nanowell plate to visually inspect alignment</li>
+            </ul>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/laser/nanowell.png"
+                    class="main-photo" id="mdl-pic">
+                <h3 class="caption"> Fig. 3: Aligned Laser in Nanowell Plate</h3>
+            </div>
+            <p class="body1"></p>
+            <h2 class="header1">LASER TRAJECTORY OPTIMIZATION PROJECT </h2>
+            <p class="body1">Another project I worked on was optimizing trajectories for scanning Nanowells with the laser. The labs previous implementation involved creating a raster scan from a bitmap file. The laser would scan over every pixel from left to right and turn on/off according to the bitmap.
+                This is very inefficient for cases where the laser is off most of the time since it will scan over every pixel anyways. 
+            </p>
+            <p class="body1">I created a new trajectory generation protocol that uses a vector based approach: 
+            </p>
+            <ul class="blog-list">
+                <li>Read user inputted bitmap</li>
+                <li>Use Python CV library to extract all contours from the bitmap (i.e. Nanowells to be scanned)</li>
+                <li>Use Travelling Salesperson Problem path optimization to find the quickest path through all target Nanowells</li>
+                <li>To avoid discontinuities between wells, calculate straight line segments for the laser to follow between wells</li>
+                <li>Once pixel trajectory is computed, convert to galvo voltages using interpolation table from calibration step</li>
+            </ul>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/laser/traj.jpg"
+                    class="main-photo" id="mdl-pic">
+                <h3 class="caption"> Fig. 4: Optimized Trajectory Visualized</h3>
+            </div>
+            <p class="body1">For the scan shown in figure 4 above, the optimized trajectory takes 86% less time than it would with the pure raster approach. This saves the lab large amounts of time while testing since scans sometimes take on the order of 30 minutes to complete.
+            </p>
+
+            <p class="body1">Within each Nanowell, a mini-raster is computed to ensure that the whole well is scanned over. The interpolated trajectory is visualized in figure 6 to show the non-linear nature of the voltage-pixel relationship: </p>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/laser/p_traj_z.png"
+                    class="main-photo" id="mdl-pic">
+                <h3 class="caption"> Fig. 5: Pixel Trajectory for individual Nanowell</h3>
+            </div>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/laser/v_traj_z.png"
+                    class="main-photo" id="mdl-pic">
+                <h3 class="caption"> Fig. 6: Interpolated Voltage Trajectory for individual Nanowell</h3>
+            </div>
+        </div>
+
+    </div>
+
+</body>

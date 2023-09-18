@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/project-styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo">Tate Kolton</a>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/projects.html" class="navbar_links"> Projects </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/skills.html" class="navbar_links"> Skills </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/" class="navbar_links"> Work Experience </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/about.html" class="navbar_links"> About </a>
+                </li>
+                <li class="navbar_btn">
+                    <a href="/contact.html" class="button"> Contact </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+
+    <div class="blog">
+        <div class="blog-container">
+            <h1 class="title"> LOW-G FORCE CENTRIFUGE </h1>
+            <h2 class="header1"> PROJECT DESCRIPTION </h2>
+            <p class="body1"> 
+                For my Graduation Project, our team of 5 was tasked with creating a centrifuge that applies forces in the range of 5-50 G to microwell plates for blood research. 
+                Regular industry centrifuges offer forces in the range of 500-50,000 G, much higher than we need. 
+                Because of the low forces, the normal “swing bucket” centrifuge can not be used.
+            </p>
+
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/centrifuge2.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 1: Finished Low G Centrifuge</h3>
+            </div>
+            <p class="body1"> 
+                The requirements for the device were: 
+            </p>
+            <ul class="blog-list">
+                <li>Must apply forces to 1-4 microwell plates in the range of 5 - 50 G</li>
+                <li> Applied force must be selectable in 1 G increments</li>
+                <li> G-force accuracy at plate centre must be within +/- 0.5 G's</li>
+                <li> Project must be completed in 8 months </li>
+            </ul>        
+
+            <h2 class="header1">DESIGN </h2>
+            <p class="body1"> 
+                The most commonly used centrifuge, known as a “swing bucket” centrifuge, works by using centrifugal force to swing the samples into a state where the force is applied directly into the wells. These centrifuges rely on extremely high G-forces to force the swing to a position that is essentially 90 degrees. At 1000 G, this angle is 89.96 degrees.
+                For a low-G centrifuge, this principle of operation does not work. At 5 G, the samples would only swing up to 78 degrees. For a microwell plate centrifuge, this would cause roughly a 25mm variation in radius of rotation experienced by the wells. Since centrifugal force is directly proportional to radius of rotation, this angle would cause a massive 15% G-variation across the plate for the expected radius of rotation. 
+                Due to this phenomenon, a redesign of the typical centrifuge is required if we wish to achieve highly consistent and uniform G forces across an entire microwell plate.
+            </p>
+
+            <p class="body1">
+                For consistent G-force, a vertical axis of rotation is desired, however, we don't want the microwell plate to hang vertically at rest, because this introduces the possibility of fluid spilling out of the wells. To solve this problem, we add torsional springs on a hinge so that the microwell plates hang at an angle while at rest. As the centrifuge spins up, the springs flex until the plates reach their vertical position and touch an end stop. The figure below shows this spring concept in action for the vertical rotor. 
+            </p>
+
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/cent-working.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 2: Centrifuge Working Principle </h3>
+            </div>
+
+            <p class="body1"></p>
+
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/labelled-cent.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 3: Labelled Centrifuge Rotor </h3>
+            </div>
+
+            <p class="body1"></p>
+
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/frame.jpg"
+                    class="main-photo" >
+                <h3 class="caption"> Fig. 4: Labelled Centrifuge Frame / Enclosure </h3>
+            </div>
+
+            <p class="body1">
+                The rotor was secured to an aluminum frame through self aligning ball bearings. The centrifuge was driven using a BLDC motor with a timing belt transmission. A high-resolution encoder on the rotor shaft ensured high G force precision. For safety, a limit switch was mounted to the enclosure to ensure that the cover is closed before operation can begin.
+            </p>
+
+
+            
+            <h2 class="header1"> TAKEAWAYS </h2>
+            <p class="body1"> 
+                This project required over 100 hours of machining for me, so I definitely learned a lot about designing for manufacture. The spring hinge design didn't come to us for several weeks, so it was a good lesson in waiting to really understand a problem before you choose a design to pursue.
+            </p>
+
+            <p class="body1"></p>
+
+        </div>
+
+    </div>
+
+</body>

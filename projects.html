@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo">Tate Kolton</a>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/projects.html" class="navbar_links"> Projects </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/skills.html" class="navbar_links"> Skills </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/" class="navbar_links"> Work Experience </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/about.html" class="navbar_links"> About </a>
+                </li>
+                <li class="navbar_btn">
+                    <a href="/contact.html" class="button"> Contact </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+
+    <div class="projects-container">
+
+        <div class="project-page-main">
+
+            <div class="project-category">
+                <h1>MECHATRONICS</h1>
+            </div>
+
+            <a href="/pendulum-project/pendulum.html" class="proj-link">
+                <div class="project-cover" id="inverted-pend">
+                    <h1 class="project-title"> INVERTED PENDULUM </h1>
+                    <h3 class="project-type"> Personal Project </h2>
+                </div>
+            </a>
+
+            <a href="/arm-project/arm.html" class="proj-link">
+                <div class="project-cover" id="rover">
+                    <h1 class="project-title"> 6-AXIS ROBOT ARM </h1>
+                    <h3 class="project-type"> UBC Rover Design Team </h2>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="project-page-main">
+
+            <div class="project-category">
+                <h1>SOFTWARE</h1>
+            </div>
+
+            <a href="/pendulum-project/pendulum.html" class="proj-link">
+                <div class="project-cover" id="website">
+                    <h1 class="project-title"> PORTFOLIO WEBSITE </h1>
+                    <h3 class="project-type"> Personal Project </h2>
+                </div>
+            </a>
+
+            <a href="/mdl-project/mdl.html" class="proj-link">
+                <div class="project-cover" id="mdl">
+                    <h1 class="project-title"> LASER MICROSCOPY SOFTWARE </h1>
+                    <h3 class="project-type"> Multi-Scale Design Laboratory </h2>
+                </div>
+            </a>
+        </div>
+
+        <div class="project-page-main">
+
+            <div class="project-category">
+                <h1>MECHANICAL</h1>
+            </div>
+
+            <a href="/capstone-project/capstone.html" class="proj-link">
+                <div class="project-cover" id="capstone">
+                    <h1 class="project-title"> LOW-G CENTRIFUGE </h1>
+                    <h3 class="project-type"> UBC Capstone Project </h2>
+                </div>
+            </a>
+
+            <a href="/machining-project/machine.html" class="proj-link">
+                <div class="project-cover" id="machine">
+                    <h1 class="project-title"> PARTS CATALOGUE </h1>
+                    <h3 class="project-type"> Designed & Made By Me </h2>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
+
+@media screen and (max-width: 1300px) {
+    .project-page-main{
+        flex-direction: column;
+    }
+
+    .project-cover {
+        margin-left: 0rem;
+    }
+
+
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo">Tate Kolton</a>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/projects.html" class="navbar_links"> Projects </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/skills.html" class="navbar_links"> Skills </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/" class="navbar_links"> Work Experience </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/about.html" class="navbar_links"> About </a>
+                </li>
+                <li class="navbar_btn">
+                    <a href="/contact.html" class="button"> Contact </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+
+    <form action="send_email.php" method="POST">
+        <div class="contact-container">
+            <h1 class="contact-title">
+                CONTACT TATE
+            </h1>
+            <h2 class="contact-heading">
+                Please leave me a message below and I'll get back to you as soon as possible!
+            </h2>
+            <div class="contact-field">
+                <h3>
+                    Name
+                </h3>
+                <input type="text" class="contact-input" name="name" >
+            </div>
+
+            <div class="contact-field">
+                <h3>
+                    Email Address
+                </h3>
+                <input type="text" class="contact-input" name="email" >
+            </div>
+
+            <div class="contact-field">
+                <h3>
+                    Message
+                </h3>
+                <textarea class="contact-input" name="message" id="msg"></textarea>
+            </div>
+
+            <div class="contact-btn">
+                <input type="submit" class="button" value="Send Message">
+            </div>
+        </div>
+    </form>
+</body>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/project-styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo">Tate Kolton</a>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/projects.html" class="navbar_links"> Projects </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/skills.html" class="navbar_links"> Skills </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/" class="navbar_links"> Work Experience </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/about.html" class="navbar_links"> About </a>
+                </li>
+                <li class="navbar_btn">
+                    <a href="/contact.html" class="button"> Contact </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+
+    <div class="blog">
+        <div class="blog-container">
+            <h1 class="title"> SELF-BALANCING ROTARY INVERTED PENDULUM </h1>
+            <h2 class="header1"> PROJECT DESCRIPTION </h2>
+            <p class="body1"> For a summer project, I designed, modelled, and built a rotary inverted pendulum. An inverted pendulum is an under-actuated system that relies on a closed-loop control system to self stabilize in the upright position.
+                The system is highly non-linear in nature and is thus difficult to control. I designed the Mechanical Structure using Solidworks CAD then used a combination of machining and 3D printing to build the system. 
+                I used Lagrangian Mechanics to obtain the linearized State Space Model,
+                then modelled the closed loop response in MATLAB/Simulink. Once the model was tuned, I implemented the controller on a Teensy 4.1, which is powered by the ARM Cortex M7 MCU. 
+                I also wrote two pendulum "Swing-Up" algorithms that allow the pendulum to bring itself from rest to the upright position without user input.
+                The final product was successfully able to swing itself up and balance with 0.3 degrees of pendulum angle variation, and less than 1 degree of arm angle variation.
+            </p>
+
+            <!-- <div class="photo-container">
+                <img 
+                    src="/images/project-images/ip-color.jpg"
+                    class="main-photo" id="ip-pic">
+                <h3 class="caption"> Fig. 1: Inverted Pendulum </h3>
+            </div> -->
+            <div class="video-container">
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7101243127230857216?compact=1" class="portfolio-video" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                <h3 class="caption"> Fig. 1: Inverted Pendulum Final Device </h3>
+            </div>
+
+            <h2 class="header1"> DESIGN </h2>
+            <p class="body1"> 
+                The pendulum system consists of the following components:
+            </p>
+            <ul class="blog-list">
+                <li> 24V, 30W Brushed DC Motor</li>
+                <li>2 x Quadrature Encoder (2048 PPR, one on pendulum and one on motor) </li>
+                <li> Machined Aluminum Pendulum </li>
+                <li> Machined Steel Rotary Shaft </li>
+                <li> 2 x Self Aligning, Low Lriction Ceramic Bearings </li>
+                <li> 3D Printed Shaft Housing, Motor Housing</li>
+                <li> Aluminum Base Plate</li>
+            </ul>
+            <p class="body1"> 
+                I machined all components myself at the UBC machine shop using the mill, lathe, and waterjet.
+                The first prototype for the shaft assembly consisted of sealed ball bearings which were "sticky" in nature. This added friction 
+                caused a small band (roughly 2 degrees) where the pendulum would stay upright even with no control. This resulted in steady state oscillations
+                due to a phenomenon known as "stiction". To compensate for this, I purchased special low friction ceramic bearings which eliminated the issue.
+            </p>
+            <p class="body1"> 
+                The Teensy 4.1 board seemed like a good choice for control since it has a high clock speed of 600MHz, 16 bit PWM resolution for motor control, and several interrupt pins.
+                The high clock speed requirement comes from three factors: Extremely high encoder resolution means that interrupt service routines will be running at several kHz. Additionally, I wanted to be able to send encoder data at 100Hz minumum to the host PC via serial in order to log data. Finally, for optimal stability I desired a sampling rate of 1kHz. 
+                There are several floating point multiplations / divisions occuring during each controller calculation and there are 2 controllers making this a computationally expensive process. An arduino UNO at 16MHz clock speed is not adequate for the desired level of control.
+            </p>
+            <p class="body1"> 
+                For operating the pendulum, I designed a C# Windows Forms App for visualizing and logging encoder data, controlling the pendulum, and dynamically adjusting controller parameters.  
+                The software completes a handshake via serial with the microcontroller by sending controller parameters (PID) then requesting the current motor / pendulum angles back. This communication happens at a rate of 100hz and the angles are then live plotted and logged to a csv.
+            </p>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/gui.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 2: Inverted Pendulum Windows Forms App </h3>
+            </div>
+            <p class="body1"> 
+                I have made all software and CAD completed for this project open source and available on my <a href="https://github.com/TateKolton/Snowflake" class="blog-links" target="_blank">GitHub</a>
+            </p>
+            <h2 class="header1"> MODELLING </h2>
+            <p class="body1"> 
+                After obtaining the state space model and inputting it into MATLAB, I designed a closed-loop control system in Simulink to model the disturbance response.
+                The figure below shows the block diagram.
+            </p>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/block1.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 3: Balancing Control Block Diagram </h3>
+            </div>
+            <p class="body1"> 
+                The closed loop block diagram includes two discretized PID controllers. The inner controller ensures that the pendulum is moving towards its upright position
+                of zero degrees. The outer PID controller ensures that the motor arm angle trends towards the "Commanded Angle" which is typically hard coded as 0 degrees. This ensures the pendulum is facing forward at steady state. 
+                If no encoder and controller is placed on the motor itself, then the pendulum will only balance itself in an idealized case. Due to levelling of the table where the pendulum sits, the motor will have to accelerate in a circle to keep the pendulum balanced. Thus, a second encoder is used to fully close the loop.
+            </p>
+            <p class="body1"> 
+                The swing-up block diagram is as follows. It is based on the energy equations for the pendulum system and ensures that the motor is helping swing the pendulum up when it is in a positive energy position (sign of the motor voltage is equal to the sign of  cos(pendulum angle) x velocity).
+            </p>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/block2.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 4: Swing-Up Control Block Diagram </h3>
+            </div>
+            
+            
+            <h2 class="header1"> RESULTS </h2>
+            <p class="body1"> 
+                With the controllers tuned for a smooth and stable disturbance response, I captured the following response:
+            </p>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/unfiltered.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 5: Disturbance Response </h3>
+            </div>
+            <p class="body1"> 
+                Although this is a stable response, there is a steady state oscillation in the motor with a magnitude of roughly 3 degrees. The oscillation arises from noise in the derivative term of the signal. Adding a low pass filter to the derivative gain reduces oscillations by 80%, but severely reduces the stability of the system to disturbances.
+                To achieve high stability while minimizing the steady state oscillations, I created a dynamic low pass filter. When the pendulum is in its stable upright position at steady state, the filter is enabled which effectively smooths out the derivative term and reduces oscillations. To ensure stability, the control algorithm polls the pendulum angle. 
+                If the angle surpasses a threshold (caused by disturbance), the filter is disabled until the pendulum returns to its steady state stable position. The results from this improved control system are shown in the figure below. Steady state oscillations in the arm angle were reduced from +/- 3 degrees to +/- 0.35 degrees.
+            </p>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/filtered.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 6: Disturbance Response (Dynamic Low Pass Filter) </h3>
+            </div>
+            <h2 class="header1"> TAKEAWAYS </h2>
+            <p class="body1"> 
+                This project offered valuable lessons in the importance of mechanical assembly quality in achieving optimal system behaviour. The first prototype I made had high friction in the pendulum due to cheap bearings and a slightly imperfect shaft which made a massive difference in the control response. As shown below, the steady state oscillations with the first prototype were almost 20 degrees in the arm angle and 5 degrees in the pendulum.   
+            </p>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/pt1.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 7: First Prototype Disturbance Response </h3>
+            </div>
+            <p class="body1"> 
+                Spending more on low friction bearings and machining a custom, precise shaft made a massive difference in the result of this project. It changed a hobbyist project to a professional level product.   
+            </p>
+
+        </div>
+
+    </div>
+
+</body>

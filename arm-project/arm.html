@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/project-styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo">Tate Kolton</a>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/projects.html" class="navbar_links"> Projects </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/skills.html" class="navbar_links"> Skills </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/" class="navbar_links"> Work Experience </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/about.html" class="navbar_links"> About </a>
+                </li>
+                <li class="navbar_btn">
+                    <a href="/contact.html" class="button"> Contact </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+
+    <div class="blog">
+        <div class="blog-container">
+            <h1 class="title"> UBC ROVER 6 DEGREE-OF-FREEDOM ROBOT ARM </h1>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/team-status.jpg"
+                    class="main-photo" id="rover-pic">
+                <h3 class="caption"> Fig. 1: UBC Rover 2022 Design and Team Involvement</h3>
+            </div>
+            <h2 class="header1"> PROJECT DESCRIPTION </h2>
+            <p class="body1"> 
+                UBC Rover is a design team that builds a 50kg Vehicle to compete in the Canadian International Rover Challenge. This competition requires a rover to traverse difficult terrain, troubleshoot / assemble control panels using a robotic arm, and collect soil samples for analysis. All of this is done through an operator in a trailer up to 300m away using an xbox controller and camera feeds.
+                I joined UBC Rover in 2019 when it was a fairly inactive team. In 2021, there was an opportunity for me to become lead of the arm subteam. Our small subteam consisting of 3 mechatronics students was determined to build an arm and inspire the rest of the team to make it to competition that summer. Our subteam was responsible for mechanical, electrical, and software design. 
+            </p>
+            <p class="body1"> 
+                The requirements for the arm were: 
+            </p>
+            <ul class="blog-list">
+                <li> 2kg Continuous Payload</li>
+                <li> 10kg Max Weight</li> </li>
+                <li> 1m Reach</li>
+                <li> 6 Degrees of Freedom</li>
+                <li> Controllable using Xbox Controller</li>
+                <li> Compatible with Team's Existing Robot Operating System (ROS) Software Architecture </li>
+            </ul>
+                        
+            <div class="video-container">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6920195988854902785?compact=1" class="portfolio-video" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                <h3 class="caption"> Fig. 2: 2022 Arm Calibration Sequence </h3>
+            </div>
+
+            <h2 class="header1"> MECHANICAL DESIGN </h2>
+            <p class="body1"> 
+                The pendulum system consists of the following components:
+            </p>
+            <ul class="blog-list">
+                <li> 6 x NEMA 14-23 Stepper Motors with various Planetary Gearbox Sizes</li>
+                <li>6 x Quadrature Encoder (512 PPR) </li>
+                <li> Waterjet, Milled, and 3D Printed Links </li>
+                <li> Cable Differential Driven Wrist </li>
+                <li> Timing Belts on Axis 3 & 4 for Transmission </li>
+            </ul>
+            <p class="body1"> 
+                The design was aimed at minimizing the overall inertia. This allows us to use as small motors as possible (reduce weight / power consumption), and reduce the effective stiffness at the tool point. The image below shows a labelled picture of our arm.
+            </p>
+
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/labelled-arm.jpg"
+                    class="main-photo" id="rover-pic">
+                <h3 class="caption"> Fig. 3: Labelled Arm </h3>
+            </div>
+            <h2 class="header1"> SOFTWARE DESIGN </h2>
+            <p class="body1"> 
+                I took the lead on our subteam's software in order to learn more about Robot Operating System (ROS). The arm's software can be broken down into two sections: The Embedded Software (Teensy 4.1 Board, ARM Cortex M7 MCU) and the PC Control Software (ROS). The Embedded software consists of a loop that polls for incoming serial data. 
+                The incoming data contains information about the commanded motion for each axis, as well as other commands such as opening and closing the gripper and calibrating the arm. The Teensy parses this message then commands 
+                the appropriate axes. In the background, interrupt service routines run to collect the measured position of each axis. These angles are relayed back to the host PC via serial. The PC software is contained within a ROS repository containing several nodes such as an inverse kinematics solver, Xbox controller input, and a hardware driver. 
+                These nodes work together in a publisher/subscriber architecture to send commands to the arm MCU and interpret incoming angles. The block diagram below shows the software architecture used for the arm.  
+            </p>
+
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/arm-software.jpg"
+                    class="main-photo" id="rover-pic">
+                <h3 class="caption"> Fig. 4: Arm Software Architecture </h3>
+            </div>
+
+            <p class="body1"> 
+                My code is available on UBC Rover's Github. Here is the <a href="https://github.com/TateKolton/Snowflake/blob/AllController-Tate/src/teensy-firmware/src/armFirmware.cpp" class="blog-links" target="_blank">Teensy Firmware</a>
+                and the <a href="https://github.com/TateKolton/Snowflake/blob/AllController-Tate/src/arm_hardware_driver/src/armHardwareDriver.cpp" class="blog-links" target="_blank">ROS Arm Hardware Driver</a>
+            </p>
+
+            <h2 class="header1"> ELECTRICAL DESIGN </h2>
+            <p class="body1"> 
+                Each axis consists of a limit switch attached to an interrupt pin, Quadrature encoder, and geared stepper motor. The limit switches are used to locate each axis' position when the arm is powered up, while the encoders track the closed loop position and allow for inverse kinematics capabilities. 
+                The arm was powered by a 28V LiPo battery during competition and could run for 3 hours without a recharge.    
+            </p>
+
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/elec-arm.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 5: Arm Electrical Schematic </h3>
+            </div>
+            
+            <h2 class="header1"> RESULTS </h2>
+            <p class="body1"> 
+                We made it to the 2022 summer competition and placed 3rd out of 13 teams (top Canadian Team)! Competition was a grueling 3 days of troubleshooting, practicing, and planning for tasks.
+                It was a great team bonding activity and was very rewarding. 
+            </p>
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/teamPic.jpg"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 6: Team Prepares for 2022 CIRC </h3>
+            </div>
+            
+            <h2 class="header1"> TAKEAWAYS </h2>
+            <p class="body1"> 
+                This was the largest design project I have ever taken on. The timeline was very tight (4 months for mechanical design / build, 7 months for electrical / software) so it required a high level of dedicatation. Through that dedication, I learned during this project that I love Engineering and couldn't be doing anything else. 3 years ago, I didn't see how I could build big and complicated things. I had serious doubts about my intelligence and thought that you needed to be really special to be inventive. Now, I realize that complex engineering problems are about smaller, incremental designs that eventually combine into something functional. 
+                There were dozens of challenges along the way, but this is the project where I discovered that there is typically a solution, and that Engineering is about process, not big, lucky ideas.
+            </p>
+
+            <p class="body1"></p>
+
+        </div>
+
+    </div>
+
+</body>

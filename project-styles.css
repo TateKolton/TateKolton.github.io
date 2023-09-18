@@ -1,0 +1,276 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #141414;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.navbar {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    background: #131313;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+
+}
+
+.navbar_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 80px;
+}
+
+.navbar_menu {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+}
+
+.navbar_btn {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.navbar_item {
+    height: 80px;
+}
+
+#navbar_logo {
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    color: #bae7e1;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.navbar_links {
+    align-items: center;
+    display: flex;
+    justify-content: start;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.button {
+    display: flex;
+    text-align: center;
+    color: #131313;
+    background: #bae7e1;
+    padding: 8px;
+    border: solid 0px #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar_links:hover {
+    color: #bae7e1;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #8cd4cb;
+    transition: all 0.3s ease;
+}
+
+/* Project Page Styling */
+
+.blog-container {
+    display:  flex;
+    flex-direction: column;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    color: #ddd;
+}
+
+.title {
+    width: 75%;
+    color: #e49b64;
+    font-size: 2.5rem;
+    border-bottom: solid 5px #ddd;
+    text-align: center;
+}
+
+.header1 {
+    font-size: 1.3rem;
+    text-align: left;
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.header2 {
+    font-size: 1.3rem;
+    text-align: left;
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.body1 {
+    font-size: 1.2rem;
+    text-align: left;
+    width: 90%;
+    margin-top: 0;
+}
+
+
+.photo-container {
+    width: 800px;
+}
+
+.main-photo {
+    width: 100%;
+    margin-top: 30px;
+    border: solid 2px #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-vid {
+    width: 100%;
+    margin-top: 30px;
+    border: solid 2px #ddd;
+    border-radius: 5px;
+}
+
+.caption {
+    width: 100%;
+    margin-top: 3px;
+    text-align: center;
+}
+
+.blog-list {
+    width: 90%;
+    margin-top: 0px;
+}
+
+.blog-list li {
+    margin-bottom: 5px;
+}
+
+.blog-links {
+    color: #bae7e1;
+}
+
+#ip-pic.main-photo{
+    width: 65%;
+    margin: 0 auto;
+}
+
+#rover-pic.main-photo{
+    width: 100%;
+    border: none;
+    margin: 0 auto;
+}
+
+#parts.main-photo{
+    width: 70%;
+    margin: 0 auto;
+}
+
+#mdl-pic.main-photo{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.portfolio-video {
+    width: 800px;
+    height: 400px;
+}
+
+@media screen and (max-width: 1300px) {
+    .project-page-main{
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .project-cover {
+        margin-left: 0rem;
+    }
+
+    .about-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .all-skills-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-container {
+        padding: 0.3rem;
+    }
+
+    .blog-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .project-page-main{
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .project-cover {
+        margin-left: 0rem;
+    }
+
+    .about-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .all-skills-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-container {
+        padding: 0.3rem;
+    }
+
+    .blog-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .photo-container{
+        width: 90%;
+    }
+
+    .video-container{
+        margin: 0 auto;
+    }
+
+    .portfolio-video {
+        width: 100%;
+    }
+}
