@@ -21,7 +21,6 @@ body {
 
 }
 
-
 .navbar_container {
     display: flex;
     justify-content: space-between;
@@ -30,7 +29,7 @@ body {
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 2rem;
-    height: 80px;
+    height: 100px;
 }
 
 .navbar_menu {
@@ -38,6 +37,7 @@ body {
     align-items: center;
     text-align: center;
     list-style: none;
+    margin-top: 20px;
 }
 
 .navbar_btn {
@@ -136,6 +136,7 @@ body {
         transition: 0.3s;
         background-color: #141414;
         padding-bottom: 20px;
+        margin-top: 0;
     }
 
     .navbar_links {
@@ -150,6 +151,9 @@ body {
 
     .navbar_menu.active {
         left: 0;
+        text-align: center;
+        padding-left: 0;
+        margin-top: 0;
     }
 }
 
@@ -163,14 +167,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 70px auto;
+    margin: 20px auto;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 3rem;
     max-width: 1300px;
 }
 
 .main_content h1{
-    font-size: 5rem;
+    font-size: 4rem;
     background-image: linear-gradient(to top, #fff 0%, #bae7e1 100%);
     background-size: 100%;
     -webkit-background-clip: text;
@@ -181,7 +185,7 @@ body {
 }
 
 .main_content h2{
-    font-size: 3rem;
+    font-size: 1.9rem;
     background-image: linear-gradient(to top, #fff 0%, #bae7e1 100%);
     background-size: 100%;
     -webkit-background-clip: text;
@@ -214,7 +218,7 @@ body {
 }
 
 #main-img {
-    width: 875px;
+    width: 675px;
     padding: 0 0 0 2rem;
 }
 
@@ -224,7 +228,7 @@ body {
 .about-main {
     display: flex;
     align-items: center;
-    margin: 70px auto;
+    margin: 0px auto;
     padding: 0 3rem;
     max-width: 1300px;
     justify-content: space-between;
@@ -269,8 +273,8 @@ body {
 }
 
 .skill-container {
-    padding: 50px 50px;
-    width: 450px;
+    padding: 0px 50px;
+    width: 550px;
 }
 
 .skill-type {
@@ -282,15 +286,40 @@ body {
     color: #fff;
 }
 
+.skill-list{
+    padding-left: 20px;
+    margin-bottom: 75px;
+}
+
 .skill-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .icon {
     width: 30px;
+}
+
+/* Work Exp CSS Styling */
+
+.job-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.company {
+    font-style: italic;
+    font-size: 17px;
+
+}
+
+.icon2 {
+    width: 50px;
 }
 
 /* Contacts Page CSS Styling */
@@ -338,7 +367,7 @@ body {
 
 #msg {
     height: 12rem;
-    width: 600px;
+    width: 800px;
     vertical-align: top;
 }
 
@@ -394,7 +423,19 @@ body {
 }
 
 
-@media screen and (max-width: 900px) {
+@media  screen and (max-width: 1300px) {
+    .main_container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #main-img {
+        width: 90%;
+        padding: 50px 0 0 2rem;
+    } 
+}
+
+@media  screen and (max-width: 1050px) {
     .project-page-main{
         flex-direction: column;
         margin: 0;
@@ -403,11 +444,6 @@ body {
     .project-cover {
         margin: 10px auto;
         width: 90%;
-    }
-
-    .about-main {
-        flex-direction: column;
-        align-items: center;
     }
 
     .all-skills-container {
@@ -427,7 +463,25 @@ body {
 
     .skill-title {
         font-size: 0.6rem;
-        width: 80%;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .project-page-main{
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .project-cover {
+        margin: 10px auto;
+        width: 90%;
+    }
+
+    .about-main {
+        flex-direction: column;
+        align-items: center;
     }
 
     #profile-photo {
@@ -436,6 +490,15 @@ body {
 
     #p1 {
         font-size: 1rem;
+    }
+
+    .contact-title {
+        width: 80%
+    }
+
+    #msg {
+        width: 90%;
+        vertical-align: top;
     }
 }
 
