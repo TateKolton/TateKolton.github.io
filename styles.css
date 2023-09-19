@@ -401,7 +401,6 @@ body {
 .projects-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     text-align: center;
     align-items: center;
     height: 100%;
@@ -412,15 +411,15 @@ body {
 .project-page-main {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
     margin: 20px auto;
-    padding: 0 1rem;
 }
 
 .project-cover {
     background-color: #bae7e1;
     color: #141414;
-    width: 320px;
+    width: 300px;
     height: 200px;
     border: none;
     border-radius: 12px;
@@ -428,12 +427,116 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 0 1rem 2.2rem;
-    padding: 0 1rem;
+    margin: 0 50px;
     font-size: small;
     transition: 0.25s all ease;
 }
 
+.proj-link {
+    text-decoration: none;
+    width: 400px;
+}
+
+.project-title {
+    width: 250px;
+    text-align: center;
+    margin-bottom: 0;
+
+}
+
+.project-type {
+    margin-bottom: 8px;
+    font-style: italic;
+    margin-top: 0px;
+}
+
+.project-category {
+    width: 240px;
+    margin: 0 50px;
+    align-items: center;
+    text-align: center;
+    color: #ddd;
+    font-size: 15px;
+    border-bottom: solid 2px #ddd;
+}
+
+#inverted-pend.project-cover:hover {
+    transition: all 0.25s ease;
+    background-image: url("images/project-images/ip.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #bae7e1;
+    text-align: right;
+    padding: 150px 10px 0px 0px;
+    font-size: 10px;
+    text-shadow: 0 0 2px #141414;
+}
+
+#rover.project-cover:hover {
+    transition: all 0.25s ease;
+    background-image: url("images/project-images/rover2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #bae7e1;
+    text-align: right;
+    padding: 150px 10px 0px 0px;
+    font-size: 10px;
+    text-shadow: 0 0 6px #141414;
+}
+
+#mdl.project-cover:hover {
+    transition: all 0.25s ease;
+    background-image: url("images/project-images/laser/zoomed-field.bmp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #bae7e1;
+    text-align: right;
+    padding: 130px 10px 0px 0px;
+    font-size: 10px;
+    text-shadow: 0 0 2px #141414;
+}
+
+#website.project-cover:hover {
+    transition: all 0.25s ease;
+    background-image: url("images/project-images/website.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #bae7e1;
+    text-align: right;
+    padding: 150px 10px 0px 0px;
+    font-size: 10px;
+    text-shadow: 0 0 2px #141414;
+}
+
+#capstone.project-cover:hover {
+    transition: all 0.25s ease;
+    background-image: url("images/project-images/cent.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #bae7e1;
+    text-align: right;
+    padding: 150px 10px 0px 0px;
+    font-size: 10px;
+    text-shadow: 0 0 2px #141414;
+}
+
+#machine.project-cover:hover {
+    transition: all 0.25s ease;
+    background-image: url("images/project-images/machine.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #bae7e1;
+    text-align: right;
+    padding: 150px 10px 0px 0px;
+    font-size: 10px;
+    text-shadow: 0 0 2px #141414;
+}
 
 @media  screen and (max-width: 1300px) {
     .main_container {
@@ -457,7 +560,8 @@ body {
 
     .project-cover {
         margin: 10px auto;
-        width: 70%;
+        padding: 0;
+        width: 100%;
     }
 
     .projects-container {
@@ -467,6 +571,10 @@ body {
 
     .project-title {
         font-size: 1.2rem;
+    }
+
+    .proj-link {
+        width: 300px;
     }
 
     .all-skills-container {
@@ -528,110 +636,7 @@ body {
     }
 }
 
-.project-title {
-    margin-bottom: 0px;
-    width: 400px;
-    text-align: center;
 
-}
-
-.project-type {
-    margin-bottom: 8px;
-    font-style: italic;
-    margin-top: 0px;
-}
-
-.project-category {
-    width: 240px;
-    align-items: center;
-    text-align: center;
-    color: #ddd;
-    font-size: 15px;
-    border-bottom: solid 2px #ddd;
-    margin-bottom: 1rem;
-}
-
-.proj-link {
-    text-decoration: none;
-}
-
-#inverted-pend.project-cover:hover {
-    transition: all 0.25s ease;
-    background-image: url("images/project-images/ip.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #bae7e1;
-    text-align: right;
-    padding: 150px 10px 0px 0px;
-    font-size: 10px;
-    text-shadow: 0 0 2px #141414;
-}
-
-#rover.project-cover:hover {
-    transition: all 0.25s ease;
-    background-image: url("images/project-images/rover2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #bae7e1;
-    text-align: right;
-    padding: 150px 10px 0px 0px;
-    font-size: 10px;
-    text-shadow: 0 0 6px #141414;
-}
-
-#mdl.project-cover:hover {
-    transition: all 0.25s ease;
-    background-image: url("images/project-images/laser/zoomed-field.bmp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #bae7e1;
-    text-align: right;
-    padding: 150px 10px 0px 0px;
-    font-size: 10px;
-    text-shadow: 0 0 2px #141414;
-}
-
-#website.project-cover:hover {
-    transition: all 0.25s ease;
-    background-image: url("images/project-images/website.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #bae7e1;
-    text-align: right;
-    padding: 150px 10px 0px 0px;
-    font-size: 10px;
-    text-shadow: 0 0 2px #141414;
-}
-
-#capstone.project-cover:hover {
-    transition: all 0.25s ease;
-    background-image: url("images/project-images/cent.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #bae7e1;
-    text-align: right;
-    padding: 150px 10px 0px 0px;
-    font-size: 10px;
-    text-shadow: 0 0 2px #141414;
-}
-
-#machine.project-cover:hover {
-    transition: all 0.25s ease;
-    background-image: url("images/project-images/machine.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #bae7e1;
-    text-align: right;
-    padding: 150px 10px 0px 0px;
-    font-size: 10px;
-    text-shadow: 0 0 2px #141414;
-}
 
 
 
