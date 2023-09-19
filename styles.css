@@ -457,7 +457,8 @@ body {
 
     .project-cover {
         margin: 10px auto;
-        width: 70%;
+        padding: 0;
+        width: 100%;
     }
 
     .projects-container {
@@ -530,7 +531,7 @@ body {
 
 .project-title {
     margin-bottom: 0px;
-    width: 400px;
+    width: 250px;
     text-align: center;
 
 }
@@ -553,6 +554,9 @@ body {
 
 .proj-link {
     text-decoration: none;
+    width: 300px;
+    padding: 0;
+    margin: 0;
 }
 
 #inverted-pend.project-cover:hover {
@@ -589,7 +593,7 @@ body {
     background-position: center;
     color: #bae7e1;
     text-align: right;
-    padding: 150px 10px 0px 0px;
+    padding: 130px 10px 0px 0px;
     font-size: 10px;
     text-shadow: 0 0 2px #141414;
 }
