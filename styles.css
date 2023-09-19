@@ -460,8 +460,13 @@ body {
         width: 70%;
     }
 
-    .proj-link {
-        margin: 0 0px;
+    .projects-container {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .navbar {
+        margin-right: 0;
     }
 
     .project-title {

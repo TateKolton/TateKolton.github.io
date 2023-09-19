@@ -105,6 +105,7 @@
                 <li>Command laser to a spaced grid of pixel locations corresponding to Nanowell centers (Px,Py) using new interpolation table</li>
                 <li>Capture images of laser at each location and extract laser centroid (same as first calibration step)</li>
                 <li>Overlay images of laser position with photograph of centered Nanowell plate to visually inspect alignment</li>
+                <li>As shown below, the red dots correspond to nanowell centres without warping</li>
             </ul>
             <div class="photo-container">
                 <img 
@@ -114,8 +115,8 @@
             </div>
             <p class="body1"></p>
             <h2 class="header1">LASER TRAJECTORY OPTIMIZATION PROJECT </h2>
-            <p class="body1">Another project I worked on was optimizing trajectories for scanning Nanowells with the laser. The labs previous implementation involved creating a raster scan from a bitmap file. The laser would scan over every pixel from left to right and turn on/off according to the bitmap.
-                This is very inefficient for cases where the laser is off most of the time since it will scan over every pixel anyways. 
+            <p class="body1">Another project I worked on was optimizing trajectories for scanning with the laser. The labs previous implementation involved creating a raster scan from a bitmap file. The laser would scan over every pixel in the camera FOV and turn on/off according to the bitmap.
+                This is somewhat inefficient for cases where the laser is off most of the time since it will scan over every pixel anyways. 
             </p>
             <p class="body1">I created a new trajectory generation protocol that uses a vector based approach: 
             </p>
