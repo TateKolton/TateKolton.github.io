@@ -52,7 +52,7 @@
             <h2 class="header1"> PROJECT DESCRIPTION </h2>
             <p class="body1"> 
                 UBC Rover is a design team that builds a 50kg Vehicle to compete in the Canadian International Rover Challenge. This competition requires a rover to traverse difficult terrain, troubleshoot / assemble control panels using a robotic arm, and collect soil samples for analysis. All of this is done through an operator in a trailer up to 300m away using an xbox controller and camera feeds.
-                I joined UBC Rover in 2019 when it was a fairly inactive team. In 2021, there was an opportunity for me to become lead of the arm subteam. Our small subteam consisting of 3 mechatronics students was determined to build an arm and inspire the rest of the team to make it to competition that summer. Our subteam was responsible for mechanical, electrical, and software design. 
+                I joined UBC Rover in 2019 as a second year student. In 2021, there was an opportunity for me to become lead of the arm subteam. Our small subteam consisting of 3 mechatronics students was determined to build an arm and inspire the rest of the team to make it to competition that summer. Our subteam was responsible for mechanical, electrical, and software design. 
             </p>
             <p class="body1"> 
                 The requirements for the arm were: 
@@ -83,7 +83,7 @@
                 <li> Timing Belts on Axis 3 & 4 for Transmission </li>
             </ul>
             <p class="body1"> 
-                The design was aimed at minimizing the overall inertia. This allows us to use as small motors as possible (reduce weight / power consumption), and reduce the effective stiffness at the tool point. The image below shows a labelled picture of our arm.
+                The design was aimed at minimizing the overall inertia. This allows us to use as small motors as possible (reduce weight / power consumption), and increase the effective stiffness at the tool point (less swaying). The image below shows a labelled picture of our arm.
             </p>
 
             <div class="photo-container">
@@ -94,7 +94,7 @@
             </div>
             <h2 class="header1"> SOFTWARE DESIGN </h2>
             <p class="body1"> 
-                I took the lead on our subteam's software in order to learn more about Robot Operating System (ROS). The arm's software can be broken down into two sections: The Embedded Software (Teensy 4.1 Board, ARM Cortex M7 MCU) and the PC Control Software (ROS). The Embedded software consists of a loop that polls for incoming serial data. 
+                I took the lead on our subteam's software in order to learn more about Robot Operating System (ROS). The arm's software can be broken down into two sections: The arm firmware (Teensy 4.1 Board, ARM Cortex M7 MCU) and the PC Control Software (ROS). The firmware consists of a loop that polls for incoming serial data. 
                 The incoming data contains information about the commanded motion for each axis, as well as other commands such as opening and closing the gripper and calibrating the arm. The Teensy parses this message then commands 
                 the appropriate axes. In the background, interrupt service routines run to collect the measured position of each axis. These angles are relayed back to the host PC via serial. The PC software is contained within a ROS repository containing several nodes such as an inverse kinematics solver, Xbox controller input, and a hardware driver. 
                 These nodes work together in a publisher/subscriber architecture to send commands to the arm MCU and interpret incoming angles. The block diagram below shows the software architecture used for the arm.  
@@ -140,7 +140,7 @@
             <h2 class="header1"> TAKEAWAYS </h2>
             <p class="body1"> 
                 This was the largest design project I have ever taken on. The timeline was very tight (4 months for mechanical design / build, 7 months for electrical / software) so it required a high level of dedicatation. Through that dedication, I learned during this project that I love Engineering and couldn't be doing anything else. 3 years ago, I didn't see how I could build big and complicated things. I had serious doubts about my intelligence and thought that you needed to be really special to be inventive. Now, I realize that complex engineering problems are about smaller, incremental designs that eventually combine into something functional. 
-                There were dozens of challenges along the way, but this is the project where I discovered that there is typically a solution, and that Engineering is about process, not big, lucky ideas.
+                There were dozens of challenges along the way, but this is the project where I discovered that there is typically a solution, and that Engineering is about process, not big, lucky ideas. The largest challenge in the arm software was timing for all communications. There was 2 way serial communication, as well as interrupt based ROS events from xbox controller input, inverse kinematics solver, etc. We used threading techniques to ensure a smooth flow of data and no overwriting of global variables.
             </p>
 
             <p class="body1"></p>
