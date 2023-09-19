@@ -451,7 +451,7 @@ body {
 @media  screen and (max-width: 1050px) {
     .project-page-main{
         flex-direction: column;
-        margin: 0 50px;
+        width: 100%;
         padding: 0;
     }
 
