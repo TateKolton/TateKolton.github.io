@@ -21,7 +21,6 @@ body {
 
 }
 
-
 .navbar_container {
     display: flex;
     justify-content: space-between;
@@ -30,7 +29,7 @@ body {
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 2rem;
-    height: 80px;
+    height: 100px;
 }
 
 .navbar_menu {
@@ -38,7 +37,7 @@ body {
     align-items: center;
     text-align: center;
     list-style: none;
-    margin-top: 0;
+    margin-top: 20px;
 }
 
 .navbar_btn {
@@ -137,6 +136,7 @@ body {
         transition: 0.3s;
         background-color: #141414;
         padding-bottom: 20px;
+        margin-top: 0;
     }
 
     .navbar_links {
@@ -274,7 +274,7 @@ body {
 
 .skill-container {
     padding: 0px 50px;
-    width: 450px;
+    width: 550px;
 }
 
 .skill-type {
@@ -286,15 +286,40 @@ body {
     color: #fff;
 }
 
+.skill-list{
+    padding-left: 20px;
+    margin-bottom: 75px;
+}
+
 .skill-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .icon {
     width: 30px;
+}
+
+/* Work Exp CSS Styling */
+
+.job-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.company {
+    font-style: italic;
+    font-size: 17px;
+
+}
+
+.icon2 {
+    width: 50px;
 }
 
 /* Contacts Page CSS Styling */
@@ -410,7 +435,7 @@ body {
     } 
 }
 
-@media  screen and (max-width: 1000px) {
+@media  screen and (max-width: 1050px) {
     .project-page-main{
         flex-direction: column;
         margin: 0;
@@ -419,24 +444,6 @@ body {
     .project-cover {
         margin: 10px auto;
         width: 90%;
-    }
-}
-
-@media screen and (max-width: 900px) {
-
-    .project-page-main{
-        flex-direction: column;
-        margin: 0;
-    }
-
-    .project-cover {
-        margin: 10px auto;
-        width: 90%;
-    }
-
-    .about-main {
-        flex-direction: column;
-        align-items: center;
     }
 
     .all-skills-container {
@@ -457,6 +464,24 @@ body {
     .skill-title {
         font-size: 0.6rem;
         width: 90%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .project-page-main{
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .project-cover {
+        margin: 10px auto;
+        width: 90%;
+    }
+
+    .about-main {
+        flex-direction: column;
+        align-items: center;
     }
 
     #profile-photo {
