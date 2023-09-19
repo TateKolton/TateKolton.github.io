@@ -401,7 +401,6 @@ body {
 .projects-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     text-align: center;
     align-items: center;
     height: 100%;
@@ -412,15 +411,15 @@ body {
 .project-page-main {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
     margin: 20px auto;
-    padding: 0 1rem;
 }
 
 .project-cover {
     background-color: #bae7e1;
     color: #141414;
-    width: 320px;
+    width: 300px;
     height: 200px;
     border: none;
     border-radius: 12px;
@@ -428,111 +427,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 0 1rem 2.2rem;
-    padding: 0 1rem;
+    margin: 0 50px;
     font-size: small;
     transition: 0.25s all ease;
 }
 
-
-@media  screen and (max-width: 1300px) {
-    .main_container {
-        display: flex;
-        flex-direction: column;
-        margin: 20px auto;
-    }
-
-    #main-img {
-        width: 90%;
-        padding: 50px 0 0 2rem;
-    } 
-}
-
-@media  screen and (max-width: 1050px) {
-    .project-page-main{
-        flex-direction: column;
-        width: 100%;
-        padding: 0;
-    }
-
-    .project-cover {
-        margin: 10px auto;
-        padding: 0;
-        width: 100%;
-    }
-
-    .projects-container {
-        width: 100%;
-        margin-right: 0;
-    }
-
-    .project-title {
-        font-size: 1.2rem;
-    }
-
-    .all-skills-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .skill-container {
-        padding: 0.3rem;
-        width: 80%;
-    }
-
-    .skill-list{
-        font-size: 0.9rem;
-    }
-
-    .skill-title {
-        font-size: 0.6rem;
-        width: 90%;
-    }
-
-    .about-main {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #profile-photo {
-        width: 300px;
-    }
-
-    #p1 {
-        font-size: 1rem;
-    }
-
-    .contact-title {
-        width: 80%
-    }
-
-    #msg {
-        width: 90%;
-        vertical-align: top;
-    }
-
-    .main_content h1{
-        font-size: 2.7rem;
-    }
-
-    .main_content h2{
-        font-size: 1.35rem;
-    }
-
-    .job-title {
-        height: 100px;
-    }
-
-    .icon2 {
-        width: 25px;
-    }
+.proj-link {
+    text-decoration: none;
+    width: 400px;
 }
 
 .project-title {
-    margin-bottom: 0px;
     width: 250px;
     text-align: center;
+    margin-bottom: 0;
 
 }
 
@@ -544,19 +452,12 @@ body {
 
 .project-category {
     width: 240px;
+    margin: 0 50px;
     align-items: center;
     text-align: center;
     color: #ddd;
     font-size: 15px;
     border-bottom: solid 2px #ddd;
-    margin-bottom: 1rem;
-}
-
-.proj-link {
-    text-decoration: none;
-    width: 300px;
-    padding: 0;
-    margin: 0;
 }
 
 #inverted-pend.project-cover:hover {
@@ -636,6 +537,106 @@ body {
     font-size: 10px;
     text-shadow: 0 0 2px #141414;
 }
+
+@media  screen and (max-width: 1300px) {
+    .main_container {
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto;
+    }
+
+    #main-img {
+        width: 90%;
+        padding: 50px 0 0 2rem;
+    } 
+}
+
+@media  screen and (max-width: 1050px) {
+    .project-page-main{
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .project-cover {
+        margin: 10px auto;
+        padding: 0;
+        width: 100%;
+    }
+
+    .projects-container {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+
+    .proj-link {
+        width: 300px;
+    }
+
+    .all-skills-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-container {
+        padding: 0.3rem;
+        width: 80%;
+    }
+
+    .skill-list{
+        font-size: 0.9rem;
+    }
+
+    .skill-title {
+        font-size: 0.6rem;
+        width: 90%;
+    }
+
+    .about-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #profile-photo {
+        width: 300px;
+    }
+
+    #p1 {
+        font-size: 1rem;
+    }
+
+    .contact-title {
+        width: 80%
+    }
+
+    #msg {
+        width: 90%;
+        vertical-align: top;
+    }
+
+    .main_content h1{
+        font-size: 2.7rem;
+    }
+
+    .main_content h2{
+        font-size: 1.35rem;
+    }
+
+    .job-title {
+        height: 100px;
+    }
+
+    .icon2 {
+        width: 25px;
+    }
+}
+
+
 
 
 
