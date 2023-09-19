@@ -244,6 +244,7 @@ body {
     padding: 0 3rem;
     max-width: 1300px;
     justify-content: space-between;
+    padding-top: 20px;
 }
 
 .about-text h1{
@@ -404,7 +405,6 @@ body {
     text-align: center;
     align-items: center;
     height: 100%;
-    padding: 0 2rem;
     margin: 0 auto;
     max-width: 1300px;
 }
@@ -452,6 +452,7 @@ body {
     .project-page-main{
         flex-direction: column;
         margin: 0;
+        padding: 0;
     }
 
     .project-cover {
@@ -478,19 +479,6 @@ body {
         font-size: 0.6rem;
         width: 90%;
     }
-}
-
-@media screen and (max-width: 900px) {
-
-    /* .project-page-main{
-        flex-direction: column;
-        margin: 0;
-    }
-
-    .project-cover {
-        margin: 10px auto;
-        width: 90%;
-    } */
 
     .about-main {
         flex-direction: column;
