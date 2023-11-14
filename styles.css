@@ -74,6 +74,7 @@ body {
 .button {
     display: flex;
     text-align: center;
+    justify-content: center;
     color: #131313;
     background: #bae7e1;
     padding: 8px;
@@ -367,7 +368,7 @@ body {
 
 .contact-field {
     justify-content: left;
-    padding: 25px 2rem 0px 2rem;
+    padding: 5px 2rem 0px 2rem;
     width: 100%;
 }
 
@@ -390,7 +391,7 @@ body {
     justify-content: left;
     padding: 0 2rem;
     width: 200px;
-    margin-top: 25px;
+    margin-top: 5px;
     border: none;
     border-radius: 5px;
 }
@@ -501,13 +502,13 @@ body {
 
 #website.project-cover:hover {
     transition: all 0.25s ease;
-    background-image: url("images/project-images/website.jpg");
+    background-image: url("images/project-images/plants.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     color: #bae7e1;
     text-align: right;
-    padding: 150px 10px 0px 0px;
+    padding: 130px 10px 0px 0px;
     font-size: 10px;
     text-shadow: 0 0 2px #141414;
 }
