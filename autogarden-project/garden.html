@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/project-styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo">Tate Kolton</a>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <a href="/projects.html" class="navbar_links"> Projects </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/skills.html" class="navbar_links"> Skills </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/work-exp.html" class="navbar_links"> Work Experience </a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/about.html" class="navbar_links"> About </a>
+                </li>
+                <li class="navbar_btn">
+                    <a href="/contact.html" class="button"> Contact </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script src="/script.js"></script>
+
+    <div class="blog">
+        <div class="blog-container">
+            <h1 class="title">AUTO GARDEN - IOT BASED AUTOMATED WATERING SYSTEM </h1>
+            <h2 class="header1"> PROJECT DESCRIPTION </h2>
+            <p class="body1"> 
+                In this project I created an IOT automated gardening system using an ESP32 Microcontroller. The ESP32 is a wifi equipped MCU that I used to host a webpage displaying weather data, garden moisture levels, and water reserve levels. This webpage 
+                can be accessed on any device so that the user can check on the status of their garden.
+            </p>
+            <p class="body1"> 
+                See the code on my <a href="https://github.com/TateKolton/Auto-Garden" class="blog-links" target="_blank"> Github</a>
+            </p>
+
+            <h2 class="header1"> DESIGN </h2>
+            <p class="body1"> 
+                The gardening system consists of the following components:
+            </p>
+            <ul class="blog-list">
+                <li> 12V Pump with tubing for dispensing water into plants</li>
+                <li>Rainwater collection tank with water level sensor </li>
+                <li> ESP32 MCU for powering auto garden and hosting webpage </li>
+                <li> 3x Capacitive soil moisture sensors </li>
+            </ul>
+
+            <div class="photo-container">
+                <img 
+                    src="/images/project-images/autogarden-site.png"
+                    class="main-photo">
+                <h3 class="caption"> Fig. 1: Weather Station Webpage </h3>
+            </div>
+
+            <p class="body1"> 
+                The goal of this project was to learn how to host a webpage from a microcontroller. Specifically,  I learned about the client-server flow using websockets TCP communication. I also learned how to use http requests to acquire data from an API. In 
+                this case, I was collecting current weather conditions from a weather API. I am currently developing algorithms to optimize the time that the garden can operate without human intervention. This would take into consideration: 
+
+            </p>
+            <ul class="blog-list">
+                <li> Forecasted temperatures and amount of sun</li>
+                <li> Current moisture levels in soil </li>
+                <li> Amount of water stored in collection tank </li>
+            </ul>
+
+            <p class="body1"> 
+                For example, if the moisture levels are low in the plants, but there is heavy rain forecasted in the next 24 hours, my system will hold off on watering using the pump. The same would apply if the water reserves are getting low. 
+
+            </p>
+        </div>
+    </div>
+</body>
