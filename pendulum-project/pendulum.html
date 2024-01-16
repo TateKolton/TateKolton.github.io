@@ -46,9 +46,9 @@
             <p class="body1"> For a summer project, I designed, modelled, and built a rotary inverted pendulum. An inverted pendulum is an unstable system that relies on a closed-loop control system to self stabilize in the upright position.
                 The system is highly non-linear in nature and is thus difficult to control. I designed the Mechanical Structure using Solidworks CAD then used a combination of machining and 3D printing to build the system. 
                 I used Lagrangian Mechanics to obtain the linearized State Space Model,
-                then modelled the closed loop response in MATLAB/Simulink. Once the model was tuned, I implemented the controller on a Teensy 4.1, which is powered by the ARM Cortex M7 MCU. 
+                then modelled the closed loop response in MATLAB/Simulink. Once the model was tuned, I implemented the controller on a STM32 Nucleo board with firmware in the FreeRTOS environment.
                 I also wrote two pendulum "Swing-Up" algorithms that allow the pendulum to bring itself from rest to the upright position without user input.
-                The final product was successfully able to swing itself up and balance with 0.3 degrees of pendulum angle variation, and less than 1 degree of arm angle variation.
+                The final product was successfully able to swing itself up and balance with 0.2 degrees of pendulum angle variation, and less than 0.5 degrees of arm angle variation at steady state.
             </p>
 
             <div class="video-container">
@@ -76,7 +76,7 @@
                 due to a phenomenon known as "stiction". To compensate for this, I purchased special low friction ceramic bearings which eliminated the issue.
             </p>
             <p class="body1"> 
-                The Teensy 4.1 board seemed like a good choice for control since it has a high clock speed of 600MHz, 16 bit PWM resolution for motor control, and several interrupt pins.
+                The STM32 board seemed like a good choice for control since it has a high clock speed of 280MHz, 16 bit PWM resolution for motor control, and support for FreeRTOS which allows for scheduling the control tasks with high priority and reducing the importance of tasks such as UART communication for plotting angles.
                 The high clock speed requirement comes from three factors: Extremely high encoder resolution means that interrupt service routines will be running at several kHz. Additionally, I wanted to be able to send encoder data at 100Hz minumum to the host PC via serial in order to log data. Finally, for optimal stability I desired a sampling rate of 1kHz. 
                 There are several floating point multiplations / divisions occuring during each controller calculation and there are 2 controllers making this a computationally expensive process. An arduino UNO at 16MHz clock speed is not adequate for the desired level of control.
             </p>
